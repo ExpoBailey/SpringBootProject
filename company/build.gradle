@@ -1,0 +1,55 @@
+group 'com.it.company'
+version '1.0.0'
+
+apply plugin: "java"
+apply plugin: "maven"
+apply plugin: "idea"
+apply plugin: "spring-boot"
+
+sourceCompatibility = 1.7
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE"
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven{
+        url 'http://192.168.0.222:8081/nexus/content/groups/public/'
+    }
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // spring-boot-web的启动包
+    compile ("org.springframework.boot:spring-boot-starter-web")
+
+    compile "org.springframework.boot:spring-boot-starter-freemarker"
+
+    // mybatis 整合 springboot的包
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
+    // 分页助手
+    compile('com.github.pagehelper:pagehelper:4.1.6')
+    compile "org.projectlombok:lombok:1.16.10"
+
+    // 阿里巴巴 Druid连接池
+    compile("com.alibaba:druid:1.0.28")
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.10'
+
+}

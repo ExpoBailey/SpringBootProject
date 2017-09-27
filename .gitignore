@@ -1,0 +1,5 @@
+company/.idea/
+company/.gradle/buildOutputCleanup/built.bin
+company/.gradle/
+company/build/
+company/logs/
